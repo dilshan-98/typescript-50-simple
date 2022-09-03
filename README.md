@@ -54,11 +54,30 @@
 
  useful when you don't know the actual type of the variable. Can assign any type of a value to this variable.
 
+ ****Can assign any value and can define any method or call as a function even though it isn't a one using "<variable_name>." or "<variable_name>()"
+
  let name: any = 10;
+
+ Ex: let myVar: any = 10;
+     myVar.name------
+     myVar() -------- These can be done in here because the type is here even though the variable doesn't define these - -methods ...
 
 
 10. "unknown" type to replace "any" type. T
-        24min continue in video 
+ 
+ ****Can assign any value and BUT CAN NOT define any method or call as a function when it isn't a one "<variable_name>." or "<variable_name>()" --> This can't be done if the variable isn't a one
+
+ Ex: let myVar: unknown = 10;
+     myVar.name------
+     myVar() -------- These can't be done in here
 
 
 11. Type Assertions for "unknown" type errors. 
+
+ Similar to type casting where we say to use this type for the variable so the function is available. 
+
+ Ex: let myVar: unknown = 10;
+     (myVar as string).toUpperCase()  -----Here we can use this method as the system sees it as a string 
+
+
+12. 
