@@ -80,4 +80,24 @@
      (myVar as string).toUpperCase()  -----Here we can use this method as the system sees it as a string 
 
 
-12. 
+12. User defined type guards
+ 
+ Since having "unknown" as a type, gives errors when calling methods ("myVar.name" --> This returns errors becuase in the variable it is not an object (as per 11 example), there is no such property called "name" and the type is unknown); it is beneficial to define type guards by ourselves to get reid of that error popping. 
+
+ Ex: 
+        //to check if an object has a "name" property or not
+
+        let myVar: {name: unknown} ={ name: "k"}; --> modified above variable to be an object so we can get an output.
+        //If it was kept as earlier, there will be no output since it checks out 2/3 issues I mmentioned earlier
+
+        // "!!" or "double exclamation" makes the obj into boolean so here what returns is whether obj is true or false. 
+        // This checks in here, whether the obj is really a object or not
+        function hasName(obj: any) : obj is {name: string} {
+                return  !!obj &&
+                        typeof obj === "object" &&
+                        "name" in obj
+        }
+
+        if(hasName(myVar)) {
+                console.log(myVar.name)  --> Output = k
+        }
