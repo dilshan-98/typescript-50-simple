@@ -112,7 +112,7 @@
         b = "Hi"; --> This won't work since the type for this variable is already a number.
 
 
-14. Multitypes
+14. Union Types
 
  To overcome the above case and to have a type that is less vulnarable than "any".
 
@@ -158,7 +158,7 @@
             defaultFunc(6);  ---> Output here is 16 since there is a default value to be used when undeclared by user
 
 
-16. Interfaces
+16. Interfaces  (can't use with primitives and unions)
 
  ***Function with object types : without an interface declared
 
@@ -253,4 +253,112 @@
 
 
 
-18. 
+<!-- From another video -->
+18. Tuple Arrays
+
+ Ex: let array: [number, string][]
+
+     array = [
+        [1, "a],
+        [2, "b],
+        [100, "zz"],
+     ]
+
+
+19. Type Assertions: extends from (11)
+ 
+ Ex: let cid: any = 1;
+
+     let custId = <number>cid; ---->
+
+                OR
+
+     let custId = cid as number; ---> This way, custId will only take number type from cid
+
+
+20. "Void" Type
+
+ Ex:    function x(name: string | number): void {        ----> for "console.log" etc.
+                console.log(name);
+        }
+
+        x("hi");
+
+
+21. Implement Interface in class
+ 
+ Ex:
+        interface uInterface {
+                id: number,
+                name: string,
+                register(): string
+        }
+
+        class Person implements uInterface {
+                id: number;
+                name: string;
+
+                constructor(id: number, name: string) {
+                        this.id = id;
+                        this.name = name;
+                }
+
+                register() {
+                        return `${this.id} is now registered`   ----> can't return anything other than a string since 
+                                                                the function is declared a return as string in interface
+                }
+        }
+
+        const pperson = new Person(4, "Din");
+        console.log(pperson.register())
+
+
+        <!-- Add an inheritance class here -->
+
+        class Exemployee extends Person {
+                position: string;
+
+                constructor (id: number, name: string, position: string) {
+                        super(id, name);
+                        this.position = position;
+                }
+
+        }
+
+        const exe = new Exemployee(100, "gg", "dev");
+
+        console.log(exe.register())
+
+
+22. Generics 
+
+ ** To prevent passing variables of any types
+
+  Ex:   function getArray(items: any[]): any[] {
+                return new Array().concat(items)
+        }
+
+        let a = getArray([1,2,3])
+        let b = getArray(["a", "b"])
+
+        console.log(b)
+
+        a.push("hi")  ----- > Here, even though the array consists of numbers, we can easily push strings or any type of 
+                              variables since the function itself ask for "any" type
+        console.log(a)
+
+        *******
+        <!-- To overcome this, Generics are used -->
+        *******
+
+        function getArray<T>(items: T[]): T[] {
+                return new Array().concat(items)
+        }
+
+        let a = getArray<number>([1,2,3])
+        let b = getArray<string>(["a", "b"])
+
+        console.log(b)
+
+        a.push("hi")  ----- > You can't do this anymore
+        console.log(a)

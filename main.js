@@ -121,3 +121,41 @@ var mgr = new Manager("Oil");
 console.log(mgr.employeeName);
 mgr.bue();
 mgr.greet();
+var Person = /** @class */ (function () {
+    function Person(id, name) {
+        this.id = id;
+        this.name = name;
+    }
+    Person.prototype.register = function () {
+        return "".concat(this.id, " is now registered");
+    };
+    return Person;
+}());
+var pperson = new Person(4, "Din");
+console.log(pperson.register());
+var Exemployee = /** @class */ (function (_super) {
+    __extends(Exemployee, _super);
+    function Exemployee(id, name, position) {
+        var _this = _super.call(this, id, name) || this;
+        _this.position = position;
+        return _this;
+    }
+    return Exemployee;
+}(Person));
+var exe = new Exemployee(100, "gg", "dev");
+console.log(exe.register());
+// function getArray(items: any[]): any[] {
+//     return new Array().concat(items)
+// }
+// let a = getArray([1,2,3])
+// let b = getArray(["a", "b"])
+// console.log(b)
+// a.push("hi")
+// console.log(a)
+function getArray(items) {
+    return new Array().concat(items);
+}
+var a = getArray([5, 10, 99]);
+var b = getArray(["h", "hhhh"]);
+console.log(a);
+console.log(b);

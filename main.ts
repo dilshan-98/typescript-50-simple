@@ -148,3 +148,66 @@ let mgr = new Manager("Oil");
 console.log(mgr.employeeName)
 mgr.bue()
 mgr.greet()
+
+
+
+interface uInterface {
+    id: number,
+    name: string,
+    register(): string
+}
+
+class Person implements uInterface {
+    id: number;
+    name: string;
+
+    constructor(id: number, name: string) {
+        this.id = id;
+        this.name = name;
+    }
+
+    register() {
+        return `${this.id} is now registered`
+    }
+}
+
+const pperson = new Person(4, "Din");
+console.log(pperson.register())
+
+class Exemployee extends Person {
+    position: string;
+
+    constructor (id: number, name: string, position: string) {
+        super(id, name);
+        this.position = position;
+    }
+
+}
+
+const exe = new Exemployee(100, "gg", "dev");
+
+console.log(exe.register())
+
+
+
+// function getArray(items: any[]): any[] {
+//     return new Array().concat(items)
+// }
+
+// let a = getArray([1,2,3])
+// let b = getArray(["a", "b"])
+
+// console.log(b)
+
+// a.push("hi")
+// console.log(a)
+
+function getArray<T>(items: T[]): T[] {
+    return new Array().concat(items);
+}
+
+let a = getArray<number>([5, 10, 99]);
+let b = getArray<string>(["h", "hhhh"]);
+
+console.log(a);
+console.log(b)
