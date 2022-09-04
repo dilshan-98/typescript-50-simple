@@ -101,3 +101,15 @@
         if(hasName(myVar)) {
                 console.log(myVar.name)  --> Output = k
         }
+
+
+13. Type Inference 
+
+ If you declare a variable but doesn't assign a value right there (let a;), this can be used to declare different types of values: 
+        a = 10; , a = "Hi;
+
+ But, if you declare a variable and assign a value right there (let b = 10;); this can't be used to declare other types of varibles that are different to the one declared already:
+        b = "Hi"; --> This won't work since the type for this variable is already a number.
+
+
+14. 
