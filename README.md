@@ -112,4 +112,25 @@
         b = "Hi"; --> This won't work since the type for this variable is already a number.
 
 
-14. 
+14. Multitypes
+
+ To overcome the above case and to have a type that is less vulnarable than "any".
+
+ This can be used to define multiple types for a variable so the values can be declared that belongs to either declared type.
+
+ Ex: let multiType: number | string;
+     multiType = 10;
+     multiType = "hi";
+
+ **This is used mostly when the type is not under control of yours and to restrict to give freedom as "any" so that it won't assigned to any type.
+ **Also has intellisence support (unlike for "any") in "<variable_name>."
+
+15. Functions
+ 
+ Ex: function add (num1: number, num2: number): number {
+        return num1 + num2;
+     }
+
+     add(5, 6);
+     add(); ---> This gives errors since the function expects 2 parameters 
+

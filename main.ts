@@ -49,6 +49,17 @@ if(hasName(myVar)) {
 }
 
 
+let multiType: number | string;
 
+multiType = 10;
+multiType = "hi";
+
+
+function add (num1: number, num2: number): string {
+    return "Done";
+}
+
+add(5, 6);
+// add();  ---> Errors returned 
 
 

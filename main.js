@@ -39,3 +39,11 @@ if (hasName(myVar)) {
     console.log(myVar.name);
     //////console.log(myVar.name + myVar.age)
 }
+var multiType;
+multiType = 10;
+multiType = "hi";
+function add(num1, num2) {
+    return "Done";
+}
+add(5, 6);
+// add();  ---> Errors returned 
