@@ -202,4 +202,55 @@
         }
 
 
-17. 
+17. Classes and Access modifiers
+
+ 17.1 Classes and Inheritance
+
+        Ex: ----Normal Class-----
+
+        class employee {
+                empName: string;
+
+                constructor(empname: string) {
+                        this.empName = empname;
+                }
+
+                greet(){
+                        console.log("Hi " + this.empName);
+                }
+        }
+
+        let name = new employee("Dinusha");
+
+        name.greet();
+        console.log(name.empName);
+
+
+        Ex: ----Inheritance Class-----
+
+        class manager {
+                constructor(mge: string){
+                        super(mge);
+                }
+
+                calling(){
+                        console.log("Calling "+ this.empName);
+                }
+        }
+
+        let mgr = new manager("James");
+
+        mgr.calling();
+        mgr.greet();
+        console.log(mgr.empName);
+
+
+ 17.2 Access modifiers (public, private and protected)
+
+        Ex: class employee {
+                public empName: string; ----> public: accessible for any, private: not accessible, protected: accessible 
+                                                        by inherited classes only and within the func
+
+
+
+18. 

@@ -115,3 +115,36 @@ let pI = {
 
 let y: string = fName(pI);
 console.log(y)
+
+
+
+class Employee {
+    employeeName: string;
+
+    constructor(name: string){
+        this.employeeName = name;
+    }
+
+    greet(){
+        console.log("Hello "+this.employeeName);
+    }
+}
+
+let emp = new Employee("Kil");
+console.log(emp.employeeName); //--> This can only be accessed because the variable is public inside the class
+emp.greet();
+
+class Manager extends Employee {
+    constructor(managerName: string) {
+        super(managerName);
+    }
+
+    bue(){
+        console.log("Bye "+this.employeeName);
+    }
+}
+
+let mgr = new Manager("Oil");
+console.log(mgr.employeeName)
+mgr.bue()
+mgr.greet()
