@@ -63,3 +63,55 @@ add(5, 6);
 // add();  ---> Errors returned 
 
 
+function optional (num1: number, num2?: number): string {
+    return "Done";
+}
+
+optional(5);
+
+
+function defaultFunc (num1: number, num2: number = 10): number {
+    return num1 + num2;
+}
+
+defaultFunc(6);
+
+
+//Interfaces p1: fucntion with object types
+function fullName(person: {fName: string, lName: string}): string {
+    return person.fName + person.lName;
+}
+
+let p = {
+    fName: "Fii", 
+    lName: "hiii"
+};
+
+let x: string = fullName(p);
+console.log(x)
+
+
+
+//Interfaces p2: fucntion with interface
+interface person {
+    fName: string,
+    lName: string
+}
+
+//We can have optional parameters inside interfaces as well
+// interface person {
+//     fName: string,
+//     lName?: string
+// }
+
+function fName (personI: person) {
+    return personI.fName + personI.lName;
+}
+
+let pI = {
+    fName: "HJK",
+    lName: "POI"
+}
+
+let y: string = fName(pI);
+console.log(y)

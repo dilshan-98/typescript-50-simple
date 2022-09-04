@@ -134,3 +134,72 @@
      add(5, 6);
      add(); ---> This gives errors since the function expects 2 parameters 
 
+15. (i) Optional parameter
+
+        This is to define the parameters to be optional when calling a function
+        
+        Ex: function optional (num1: number, num2?: number): string {
+                return "Done";
+            }
+
+            optional(5); ---> Only need to define first parameter since the second one is optional. You can either
+                              define it or leave it. Just like in the example.
+
+        ****Only thing is: you must define any optional parameters just after the required parameters. i.e, you can't define like this : "function optional (num1?: number, num2: number) {}"
+
+    (ii) Default parameters
+
+        To be used when the parameters are not defined fully. Just like optional parameters but with a set value instead of an undefined value.
+
+        Ex: function defaultFunc (num1: number, num2: number = 10): number {
+                return num1 + num2;
+            }
+
+            defaultFunc(6);  ---> Output here is 16 since there is a default value to be used when undeclared by user
+
+
+16. Interfaces
+
+ ***Function with object types : without an interface declared
+
+ Ex: 
+        function fullName(person: {fName: string, lName: string}): string {
+                return person.fName + person.lName;
+        }
+
+        let p = {
+                fName: "Fii", 
+                lName: "hiii"
+        };
+
+        let x: string = fullName(p);
+        console.log(x)
+
+
+***Function with interface
+
+        interface person {
+                fName: string,
+                lName: string
+        }
+
+        function fName (personI: person) {
+                return personI.fName + personI.lName;
+        }
+
+        let pI = {
+                fName: "HJK",
+                lName: "POI"
+        }
+
+        let y: string = fName(pI);
+        console.log(y)
+
+ ***We can have optional parameters inside interfaces as well
+        interface person {
+                fName: string,
+                lName?: string
+        }
+
+
+17. 
